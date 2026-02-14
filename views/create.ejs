@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create item</title>
+</head>
+<body>
+    <form action="/create" method="POST">
+        <label for="title">Game Name:</label>
+        <input type="text" name="title">
+        <label for="category_id">Developer: </label>
+        <select name="developer_id" id="developer_id">
+            <option value="1">Type A</option>
+            <option value="2">Type B</option>
+            <option value="3">Type C</option>
+        </select>
+        <label for="Category">Category: </label>
+        <select name="category_id" id="category_id">
+            <option value="1">Soccer</option>
+            <option value="2">First Person Shooter</option>
+        </select>
+        <button type="submit">Create</button>
+    </form>
+    <a href="/">Home</a>
+</body>
+</html>
