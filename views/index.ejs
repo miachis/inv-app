@@ -6,13 +6,15 @@
     <title>Home</title>
 </head>
 <body>
-    <ul>
+    
         <% list.forEach((item) => { %>
-            <a href="/categories<%= item.href %>">
-                <%= item.category_name %>
-            </a>
+            <div class="category_link">
+                <a href="/categories<%= item.href %>">
+                    <%= item.category_name %>
+                </a>
+            </div>
         <% }) %>
-    </ul>
-    <a href="/">Create Game</a>
+    
+    <a href="/create">Create Game</a>
 </body>
 </html>

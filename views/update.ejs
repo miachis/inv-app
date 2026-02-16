@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Game</title>
+</head>
+<body>
+    <h1>Update Game</h1>
+    <form action="/categories" method="POST">
+        <label for="title">
+            Game title: <input id="title" name="title" type="text" value="<%= game[0].title %>">
+        </label>
+        <label for="category_name">
+            Category:
+            <select name="category_id" id="category_id">
+                <% categories.forEach((category) => { %>
+                        <option value="<%= category.id %>" <%= game[0].category_name === category.category_name ? 'selected' : '' %>>
+                            <%= category.category_name %>
+                        </option>
+                <% }); %>
+            </select>
+        </label>
+        <label for="">
+            Developer: 
+            <select name="developer_id" id="developer_id">
+                <% developers.forEach((developer) => { %>
+                    <option value="<%= developer.id %>" <%= game[0].developer_name === developer.developer_name ? 'selected' : '' %>>
+                        <%= developer.developer_name %>
+                    </option>
+                <% }); %>
+            </select>
+        </label>
+        <input type="text" name="id" value="<%= game[0].id %>" hidden>
+        <button type="submit">Update</button>
+    </form>
+    <a href="/">Home</a>
+</body>
+</html>

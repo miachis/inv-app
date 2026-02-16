@@ -8,7 +8,7 @@ function createGameControllerPost(req, res) {
     const { title, developer_id, category_id } = req.body
     const item = [title, developer_id, category_id];
     db.createGame(item);
-    res.redirect("/");
+    res.redirect("/categories");
 }
 
 

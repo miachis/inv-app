@@ -6,13 +6,18 @@
     <title>Categories</title>
 </head>
 <body>
+    <h1><%= category %> Category</h1>
     <ul>
         <% list.forEach((item) => { %>
             <li>
-                <%= item.title %>
+                game title: <%= item.title %>, 
+                developer: <%= item.developer_name %>
+                <a href="<%= title %>/update/<%= item.id %>"><button>Update</button></a>
+                <a href="/delete"><button>Delete</button></a>
             </li>
         <% }) %>
     </ul>
-    <a href="/">Create Game</a>
+    <a href="/create">Create Game</a>
+    <a href="/">Home</a>
 </body>
 </html>
