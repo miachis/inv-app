@@ -12,6 +12,6 @@ app.use("/", indexRouter);
 app.use("/categories", categoryRouter);
 app.use("/create", createRouter);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log('server started');
 });
