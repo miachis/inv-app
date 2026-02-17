@@ -13,7 +13,9 @@
                 game title: <%= item.title %>, 
                 developer: <%= item.developer_name %>
                 <a href="<%= title %>/update/<%= item.id %>"><button>Update</button></a>
-                <a href="/delete"><button>Delete</button></a>
+                <form action="<%= title %>/delete/<%= item.id %>" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
             </li>
         <% }) %>
     </ul>

@@ -20,7 +20,7 @@ async function categoryControllerIdGet(req, res) {
             break;
     }
     
-    const category_id = await db.getCategoryId(param); // result is an object
+    const category_id = await db.getCategoryId(param); // result is an array
     const category_games = await db.getCategoryGames(category_id[0].id);
     res.render("categories.ejs", {
         category: param,
@@ -42,7 +42,7 @@ async function categoryControllerUpdateGet(req, res) {
             category = ""
             break;
     }
-    const game_info = await db.getGameInfo(id, category)
+    const game_info = await db.getGameInfo(id, category);
     const categories = await db.getAllCategories();
     const developers = await db.getAllDevelopers();
     res.render("update.ejs", {
@@ -64,9 +64,15 @@ async function categoryControllerUpdatePost(req, res) {
     res.redirect("/");
 }
 
+async function categoryControllerDelete(req, res) {
+    await db.deleteGame(req.params.id);
+    res.redirect('/');
+}
+
 module.exports = {
     categoryControllerGet,
     categoryControllerIdGet,
     categoryControllerUpdateGet,
-    categoryControllerUpdatePost
+    categoryControllerUpdatePost,
+    categoryControllerDelete
 };

@@ -26,8 +26,8 @@ async function updateGame({id, title, category_id, developer_id}) {
     `, [category_id, developer_id, title, id]);
 }
  
-async function deleteGame() {
-    // await pool.query()
+async function deleteGame(id) {
+    await pool.query("DELETE FROM games WHERE id = $1", [id]);
 }
 
 async function getCategoryGames(category_id) {
@@ -35,16 +35,16 @@ async function getCategoryGames(category_id) {
         SELECT games.id, title, developer_name FROM games 
         JOIN developers 
         ON developers.id = games.developer_id
-        WHERE category_id = '${category_id}';
-    `);
+        WHERE category_id = $1;
+    `, [category_id]);
     return rows;
 }
 
 async function getCategoryId(category_name) {
    const { rows } = await pool.query(`
         SELECT id FROM categories 
-        WHERE category_name = '${category_name}';
-    `);
+        WHERE category_name = $1;
+    `, [category_name]);
    return rows;
 }
 
@@ -55,9 +55,9 @@ async function getGameInfo(id, category) {
         ON games.category_id = categories.id
         JOIN developers 
         ON games.developer_id = developers.id
-        WHERE games.id = ${id}
-        AND categories.category_name = '${category}';
-    `);
+        WHERE games.id = $1
+        AND categories.category_name = $2;
+    `, [id, category]);
     return rows;
 }
 
