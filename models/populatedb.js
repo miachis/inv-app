@@ -1,6 +1,6 @@
 const { Client } = require("pg");
 
-//THIS FILE IS NOT BE RUN JUST ONCE!!! 
+//THIS FILE IS BE RUN JUST ONCE!!! 
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS categories (
