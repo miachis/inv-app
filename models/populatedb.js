@@ -1,5 +1,7 @@
 const { Client } = require("pg");
 
+//THIS FILE IS NOT BE RUN JUST ONCE!!! 
+
 const SQL = `
 CREATE TABLE IF NOT EXISTS categories (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
